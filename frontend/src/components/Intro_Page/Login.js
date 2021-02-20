@@ -4,17 +4,6 @@ import IntroContainer from "./IntroContainer";
 import IntroTitle from "./IntroTitle";
 
 class Login extends React.Component {
-    state = { register: false };
-
-    constructor(props) {
-        super(props);
-        this.registerToggle = this.registerToggle.bind(this);
-    }
-
-    registerToggle() {
-        this.setState({ register: true });
-    }
-
     render() {
         return (
             <IntroContainer>
@@ -29,7 +18,7 @@ class Login extends React.Component {
                             type="email"
                             placeholder="Email address"
                             required=""
-                            autofocus=""
+                            autoFocus=""
                             className="form-control rounded-pill border-0 shadow-sm px-4"
                         />
                     </div>
@@ -49,7 +38,7 @@ class Login extends React.Component {
                             className="custom-control-input"
                         />
                         <label
-                            for="customCheck1"
+                            htmlFor="customCheck1"
                             className="custom-control-label"
                         >
                             Remember password
@@ -65,9 +54,12 @@ class Login extends React.Component {
                 <div className="text-center d-flex justify-content-between mt-4">
                     <p>
                         Don't have an account?{" "}
-                        <a href="" class="font-italic text-muted" onClick={}>
-                            <u>Register Here!</u>
-                        </a>
+                        <button
+                            className="font-italic text-muted"
+                            onClick={this.props.toggle}
+                        >
+                            Register Here!
+                        </button>
                     </p>
                 </div>
             </IntroContainer>

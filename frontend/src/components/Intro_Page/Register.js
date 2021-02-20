@@ -15,7 +15,7 @@ class Register extends React.Component {
                             type="email"
                             placeholder="Email address"
                             required=""
-                            autofocus=""
+                            autoFocus=""
                             className="form-control rounded-pill border-0 shadow-sm px-4"
                         />
                     </div>
@@ -35,6 +35,17 @@ class Register extends React.Component {
                         Register
                     </button>
                 </form>
+                <div className="text-center d-flex justify-content-between mt-4">
+                    <p>
+                        Already have an account?{" "}
+                        <button
+                            className="font-italic text-muted"
+                            onClick={this.props.toggle}
+                        >
+                            Sign In Here!
+                        </button>
+                    </p>
+                </div>
             </IntroContainer>
         );
     }
