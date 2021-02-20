@@ -8,3 +8,10 @@
     background-size: cover;
     background-position: center center;
 }
+
+.toggleButton {
+    border: 0ch;
+    cursor: pointer;
+    background-color: #fff;
+    text-decoration: underline;
+}
