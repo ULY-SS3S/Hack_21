@@ -1,88 +1,32 @@
 package com.example.entity;
 
-import org.hibernate.annotations.Entity;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
 @Entity
+@Table(name="Product")
 public class Product {
 
     @Id
-    private Long id;
-    private Long userId;
-    private Long imgId;
-    private String description;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
+    private String title;
+    private String productDescription;
     private Date dateCreated;
     private Date datePurchased;
-    private Long totalClicks;
+    private int totalClicks;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Image> images;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public Long getImgId() {
-        return imgId;
-    }
-
-    public void setImgId(Long imgId) {
-        this.imgId = imgId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public Date getDatePurchased() {
-        return datePurchased;
-    }
-
-    public void setDatePurchased(Date datePurchased) {
-        this.datePurchased = datePurchased;
-    }
-
-    public Long getTotalClicks() {
-        return totalClicks;
-    }
-
-    public void setTotalClicks(Long totalClicks) {
-        this.totalClicks = totalClicks;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", imgId=" + imgId +
-                ", description='" + description + '\'' +
-                ", dateCreated=" + dateCreated +
-                ", datePurchased=" + datePurchased +
-                ", totalClicks=" + totalClicks +
-                '}';
-    }
 }
