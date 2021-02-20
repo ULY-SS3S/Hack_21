@@ -1,10 +1,8 @@
 import React from "react";
-import Login from "./Login";
+import Intro from "./Intro_Page/Intro";
 
 function App() {
-    return (
-        <Login />
-    );
+    return <Intro />;
 }
 
 export default App;
