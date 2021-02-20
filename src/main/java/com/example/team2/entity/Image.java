@@ -1,14 +1,10 @@
-package com.example.entity;
+package com.example.team2.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Blob;
 
-@Data
-@NoArgsConstructor
 @Entity
-@Table(name="Image")
 public class Image {
 
     //The ID Used to reference product
@@ -18,7 +14,12 @@ public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private Blob img;
 
+    public Image(Product product, Integer id, Blob img) {
+        this.product = product;
+        this.id = id;
+        this.img = img;
+    }
 }
