@@ -8,6 +8,12 @@ import {AuthContext} from "../../Auth/UserAuthProvider";
 import {useHistory} from "react-router";
 import {BackTop} from "antd";
 
+import 'react-tiny-fab/dist/styles.css';
+
+import {ArrowUpOutlined} from '@ant-design/icons';
+import fab from "../Fab/fab";
+
+
 const Products = () => {
     let authContext = useContext(AuthContext);
     let history = useHistory();
@@ -36,13 +42,17 @@ const Products = () => {
                 imgs.map(img => {
                     return (
                         <ProductCard
-                        cart={authContext.cart} setCart={authContext.setCart} img={img}
+                            cart={authContext.cart} setCart={authContext.setCart} img={img}
                         />
                     )})
             }
             <BackTop>
-                <div style={style}>Top</div>
+                <div style={style}><ArrowUpOutlined /></div>
             </BackTop>
+
+            {fab({
+                backgroundColor: '#9b59b6'
+            })}
         </ProductContainer>
     );
 }
