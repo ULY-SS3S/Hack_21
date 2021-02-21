@@ -1,17 +1,17 @@
 import React from "react";
-import Intro from "./components/Intro_Page/Intro";
+import Team2Route from "./Nav/I2URoute";
+import I2URoute from "./Nav/I2URoute";
 import {BrowserRouter} from "react-router-dom";
-import Team2Route from "./Nav/Team2Route";
+import {UserAuthProvider} from "./Auth/UserAuthProvider";
 
 function App() {
     return (
         <BrowserRouter>
-            <Team2Route/>
-            {/*<UserAuthProvider>*/}
-            {/*</UserAuthProvider>*/}
+            <UserAuthProvider>
+                <I2URoute/>
+            </UserAuthProvider>
         </BrowserRouter>
     );
-
 }
 
 export default App;

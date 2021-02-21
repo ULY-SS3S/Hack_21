@@ -1,30 +1,31 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import Login from "./Login";
 import Register from "./Register";
+import {AuthContext} from "../../Auth/UserAuthProvider";
 
-class Intro extends React.Component {
-    state = { registerPage: false };
+const Intro = () => {
+    const [registerPage, setRegisterPage] = useState(false);
 
-    constructor(props) {
-        super(props);
-        this.registerToggle = this.registerToggle.bind(this);
+    const authContext = useContext(AuthContext);
+
+    function registerToggle() {
+        setRegisterPage(registerPage => !registerPage);
     }
 
-    registerToggle() {
-        this.setState({ registerPage: !this.state.registerPage });
-    }
-
-    renderContent() {
-        if (!this.state.registerPage) {
-            return <Login toggle={this.registerToggle} />;
-        } else {
-            return <Register toggle={this.registerToggle} />;
-        }
-    }
-
-    render() {
-        return <div>{this.renderContent()}</div>;
-    }
+    return (
+        <div>
+            {registerPage ?
+                <Register
+                    toggle={registerToggle}
+                    registerFunc={authContext.registerFunc}
+                />
+                : <Login
+                    toggle={registerToggle}
+                    loginFunc={authContext.loginFunc}
+                />
+            }
+        </div>
+    )
 }
 
 export default Intro;
