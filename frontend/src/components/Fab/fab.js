@@ -4,6 +4,7 @@ import {Badge} from "antd";
 import React from "react";
 import ShoppingCartAction from "./shoppingCart";
 import {useHistory} from "react-router";
+import {UserMsg} from "./UserMsg";
 
 export const FabNavBar = (props) => {
     let actionButtonStyles = props.actionButtonStyles;
@@ -19,16 +20,7 @@ export const FabNavBar = (props) => {
             event="click"
             alwaysShowTitle={true}
         >
-            <Action
-                style={actionButtonStyles}
-                text="User"
-                onClick={e => {
-                    alert('I printed the event to the console.');
-                    console.log(e);
-                }}
-            >
-                <UserOutlined />
-            </Action>
+            <UserMsg actionButtonStyles={actionButtonStyles} text="User"/>
 
             <ShoppingCartAction actionButtonStyles={actionButtonStyles} text="Cart"/>
 

@@ -12,6 +12,7 @@ import 'react-tiny-fab/dist/styles.css';
 
 import {ArrowUpOutlined} from '@ant-design/icons';
 import {FabNavBar} from "../Fab/fab";
+import {BASE_API} from "../../env";
 
 
 const Products = () => {
@@ -23,6 +24,17 @@ const Products = () => {
         if (!authContext.isLoggedIn){
             history.push("/intro");
         }
+        let products = [];
+        fetch(BASE_API + "/product/getAll", {
+            method: "GET"
+        }).then(response => response.json())
+            .then(arr => {
+                products = arr;
+                console.log(products);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }, [authContext.isLoggedIn]);
 
     const style = {
@@ -52,8 +64,8 @@ const Products = () => {
 
             <FabNavBar actionButtonStyles={{
 
-                    backgroundColor: '#9b59b6'
-                }}/>
+                backgroundColor: '#9b59b6'
+            }}/>
         </ProductContainer>
     );
 }

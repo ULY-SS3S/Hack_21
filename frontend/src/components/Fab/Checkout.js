@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "../../styles/cart.css"
 import {Button, Col, Modal} from "antd";
-import {PayCircleOutlined} from "@ant-design/icons";
+import {MoneyCollectTwoTone, PayCircleOutlined} from "@ant-design/icons";
 
 const Checkout = () => {
     return (
@@ -146,7 +146,7 @@ const CheckoutModal = () => {
 
     return (
         <>
-            <Button type="primary" icon={<PayCircleOutlined />} onClick={showModal}/>
+            <Button type="primary" icon={<MoneyCollectTwoTone />} onClick={showModal} shape="circle"/>
             <Modal
                 title="Checkout"
                 centered
@@ -160,7 +160,7 @@ const CheckoutModal = () => {
             </Modal>
         </>
     );
-};
+}
 
 export default CheckoutModal;
 
