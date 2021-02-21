@@ -3,6 +3,7 @@ import Intro from "./Intro_Page/Intro";
 import Products from "./Products";
 import ShoppingCart from "./ShoppingCart";
 import NewProduct from "./NewProduct";
+import ChatInterface from "./ChatInterface";
 
 class App extends React.Component {
     state = { currentCartItems: [] };
@@ -25,6 +26,7 @@ class App extends React.Component {
                 <Products update={this.updateCart} />
                 <ShoppingCart items={this.state.currentCartItems} />
                 <NewProduct />
+                <ChatInterface />
             </div>
         );
     }
