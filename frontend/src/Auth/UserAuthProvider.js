@@ -3,8 +3,9 @@ import {useHistory} from "react-router";
 
 export const AuthContext = createContext({
     username: "",
-    setUsername: () => {},
     isLoggedIn: false,
+    cart: [],
+    setCart: () => {},
     loginFunc: () => {},
     registerFunc: () => {}
 });
@@ -13,6 +14,7 @@ export const UserAuthProvider = (props) => {
     const history = useHistory();
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
+    const [shoppingCart, setShoppingCart] = useState([]);
     function formRegister(event){
         event.preventDefault();
         let form = event.target;
@@ -34,8 +36,9 @@ export const UserAuthProvider = (props) => {
     return (
         <AuthContext.Provider value={{
             username: username,
-            setUsername: setUsername,
             isLoggedIn: isLoggedIn,
+            cart: shoppingCart,
+            setCart: setShoppingCart,
             registerFunc: formRegister,
             loginFunc: formLogin
         }}>

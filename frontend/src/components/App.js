@@ -1,6 +1,6 @@
 import React from "react";
 import Intro from "./Intro_Page/Intro";
-import Products from "./Products";
+import Products from "./Products_Page/Products";
 import ShoppingCart from "./ShoppingCart";
 
 class App extends React.Component {
