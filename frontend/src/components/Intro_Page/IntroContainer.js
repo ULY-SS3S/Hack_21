@@ -1,10 +1,13 @@
 import React from "react";
+import "../../styles/intro.css";
 
 const IntroContainer = ({ children }) => {
     return (
         <div className="container-fluid">
             <div className="row no-gutter">
-                <div className="col-md-7 d-none d-md-flex bg-image"></div>
+                <div className="col-md-7 d-none d-md-flex bg-image">
+                    <h1 id="absolute-title"></h1>
+                </div>
 
                 <div className="col-md-5 bg-light">
                     <div className="intro d-flex align-items-center py-5">
