@@ -2,6 +2,7 @@ import React from "react";
 import Intro from "./Intro_Page/Intro";
 import Products from "./Products";
 import ShoppingCart from "./ShoppingCart";
+import NewProduct from "./NewProduct";
 
 class App extends React.Component {
     state = { currentCartItems: [] };
@@ -23,6 +24,7 @@ class App extends React.Component {
                 <Intro />
                 <Products update={this.updateCart} />
                 <ShoppingCart items={this.state.currentCartItems} />
+                <NewProduct />
             </div>
         );
     }
