@@ -1,6 +1,10 @@
 package com.example.team2.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -15,17 +19,31 @@ public class User {
     private String lastname;
     private String email;
     private double rating;
+    private Date joinDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @JsonManagedReference
     private List<Product> products;
 
-    public User(Integer id, String username, String firstname, String lastname, String email, double rating) {
-        this.id = id;
+//    public User(Integer id, String username, String firstname, String lastname, String email, double rating) {
+//        this.id = id;
+//        this.username = username;
+//        this.firstname = firstname;
+//        this.lastname = lastname;
+//        this.email = email;
+//        this.rating = rating;
+//    }
+
+
+    public User() {
+    }
+
+    public User(String username, String firstname, String lastname, String email) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.rating = rating;
+        this.joinDate = new Date(Calendar.getInstance().getTimeInMillis());
     }
 
     public Integer getId() {
@@ -84,6 +102,14 @@ public class User {
         this.products = products;
     }
 
+    public Date getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(Date joinDate) {
+        this.joinDate = joinDate;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -93,7 +119,13 @@ public class User {
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", rating=" + rating +
+                ", joinDate=" + joinDate +
                 ", products=" + products +
                 '}';
     }
+    public void addProduct(Product p) {
+        this.products.add(p);
+        p.setUser(this);
+    }
+
 }

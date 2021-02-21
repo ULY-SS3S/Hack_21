@@ -1,28 +1,31 @@
 package com.example.team2;
 
 
+import com.example.team2.entity.User;
 import com.example.team2.repository.TestRepository;
-import com.example.team2.entity.Test;
+import com.example.team2.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class Team2Application {
 
     @Autowired
-    TestRepository testRepository;
+	UserRepository userRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Team2Application.class, args);
 	}
 	@Bean
-	CommandLineRunner commandlineRunner(TestRepository testRepository){
+	CommandLineRunner commandlineRunner(UserRepository userRepository){
 		return args -> {
-			Test test = new Test("Hi");
-			testRepository.save(test);
+			User user = new User("Terry", "Yuanhao", "Lu", "terryl@usc.edu");
+			userRepository.save(user);
+			System.out.println(userRepository.count());
 		};
 	}
 }
