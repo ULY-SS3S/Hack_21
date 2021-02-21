@@ -1,5 +1,6 @@
 import "../../styles/product.css";
 import React, {useEffect, useState} from "react";
+import {Button, message} from "antd";
 
 
 const ProductCard = (props) => {
@@ -16,7 +17,7 @@ const ProductCard = (props) => {
 
     // before click: danger, after click: secondary
     let [buttonState, setButtonState] = useState({
-        className: "btn btn-danger btn-lg btn-block",
+        type: "danger",
         disabled: false
     });
 
@@ -30,8 +31,14 @@ const ProductCard = (props) => {
     function onItemAdded() {
         // props.cart.push()
         props.setCart([...props.cart, info]);
+        message.success({
+            content: "Added to the shopping cart!",
+            style: {
+                marginTop: '20vh',
+            }
+        });
         setButtonState({
-            className: "btn btn-secondary btn-lg btn-block",
+            type: "dashed",
             disabled: true
         })
     }
@@ -109,14 +116,14 @@ const ProductCard = (props) => {
                         </div>
                     </div>{" "}
                     <div className="mx-3 mt-3 mb-2">
-                        <button
-                            type="button"
+                        <Button
                             {...buttonState}
                             // className="btn btn-block"
                             onClick={onItemAdded}
+                            block
                         >
                             <b>BUY</b>
-                        </button>
+                        </Button>
                     </div>{" "}
                     <small className="d-flex justify-content-center text-muted">
                         *Legal Disclaimer

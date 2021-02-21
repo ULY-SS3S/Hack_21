@@ -6,6 +6,7 @@ import SampleImg_2 from "../../images/SampleImage_2.jpg";
 import Sample from "../../images/Sample.jpg";
 import {AuthContext} from "../../Auth/UserAuthProvider";
 import {useHistory} from "react-router";
+import {BackTop} from "antd";
 
 const Products = () => {
     let authContext = useContext(AuthContext);
@@ -18,6 +19,17 @@ const Products = () => {
         }
     }, [authContext.isLoggedIn]);
 
+    const style = {
+        height: 40,
+        width: 40,
+        lineHeight: '40px',
+        borderRadius: 4,
+        backgroundColor: '#1088e9',
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 14,
+    };
+
     return (
         <ProductContainer>
             {
@@ -28,6 +40,9 @@ const Products = () => {
                         />
                     )})
             }
+            <BackTop>
+                <div style={style}>Top</div>
+            </BackTop>
         </ProductContainer>
     );
 }
