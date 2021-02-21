@@ -2,7 +2,6 @@ import {Redirect, Route, Switch} from "react-router";
 import Intro from "../components/Intro_Page/Intro";
 import Products from "../components/Products";
 
-
 const I2URoute = () => {
     return (
            <Switch>
