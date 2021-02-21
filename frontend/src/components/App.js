@@ -1,31 +1,17 @@
 import React from "react";
-import Intro from "./Intro_Page/Intro";
-import Products from "./Products_Page/Products";
-import ShoppingCart from "./ShoppingCart";
+import I2URoute from "../Nav/I2URoute";
+import {BrowserRouter} from "react-router-dom";
+import {UserAuthProvider} from "../Auth/UserAuthProvider";
+import '../styles/App.css';
 
-class App extends React.Component {
-    state = { currentCartItems: [] };
-
-    constructor(props) {
-        super(props);
-        this.updateCart = this.updateCart.bind(this);
-    }
-
-    updateCart(newItem) {
-        this.setState({
-            currentCartNum: this.state.currentCartItems.push(newItem),
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <Intro />
-                <Products update={this.updateCart} />
-                <ShoppingCart items={this.state.currentCartItems} />
-            </div>
-        );
-    }
+function App() {
+    return (
+        <BrowserRouter>
+            <UserAuthProvider>
+                <I2URoute/>
+            </UserAuthProvider>
+        </BrowserRouter>
+    );
 }
 
 export default App;

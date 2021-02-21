@@ -1,7 +1,8 @@
 import {Action, Fab} from "react-tiny-fab";
-import {ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
+import {EditFilled, ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
 import {Badge} from "antd";
 import React from "react";
+import ShoppingCartAction from "./shoppingCart";
 
 export default function fab(actionButtonStyles){
     return (
@@ -25,13 +26,9 @@ export default function fab(actionButtonStyles){
             >
                 <UserOutlined />
             </Action>
-            <Action
-                style={actionButtonStyles}
-                text="Shopping Cart"
-                onClick={() => alert('Here is your notification.')}
-            >
-                <ShoppingCartOutlined />
-            </Action>
+
+            <ShoppingCartAction actionButtonStyles={actionButtonStyles} text="Cart"/>
+
             <Action style={actionButtonStyles} text="Search" onClick={() => alert('No search...')}>
                 🔍
             </Action>
@@ -49,6 +46,11 @@ export default function fab(actionButtonStyles){
                     <a href="#" className="head-example" />
                     🔔
                 </Badge>
+            </Action>
+            <Action style={actionButtonStyles}
+                    text="Add product"
+                    onClick={() => alert('No search...')}>
+                <EditFilled />
             </Action>
         </Fab>
     )
