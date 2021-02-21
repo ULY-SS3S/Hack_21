@@ -55,7 +55,7 @@ class Login extends React.Component {
                     <p>
                         Don't have an account?{" "}
                         <button
-                            className="font-italic text-muted"
+                            className="font-italic text-muted toggleButton"
                             onClick={this.props.toggle}
                         >
                             Register Here!

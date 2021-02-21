@@ -21,6 +21,33 @@ class Register extends React.Component {
                     </div>
                     <div className="form-group mb-3">
                         <input
+                            id="username"
+                            type="text"
+                            placeholder="Your User Name"
+                            required=""
+                            className="form-control rounded-pill border-0 shadow-sm px-4"
+                        />
+                    </div>
+                    <div className="form-group mb-3">
+                        <input
+                            id="firstname"
+                            type="text"
+                            placeholder="Your First Name"
+                            required=""
+                            className="form-control rounded-pill border-0 shadow-sm px-4"
+                        />
+                    </div>
+                    <div className="form-group mb-3">
+                        <input
+                            id="lastname"
+                            type="text"
+                            placeholder="Your Last Name"
+                            required=""
+                            className="form-control rounded-pill border-0 shadow-sm px-4"
+                        />
+                    </div>
+                    <div className="form-group mb-3">
+                        <input
                             id="inputPassword"
                             type="password"
                             placeholder="Password"
@@ -39,7 +66,7 @@ class Register extends React.Component {
                     <p>
                         Already have an account?{" "}
                         <button
-                            className="font-italic text-muted"
+                            className="font-italic text-muted  toggleButton"
                             onClick={this.props.toggle}
                         >
                             Sign In Here!
