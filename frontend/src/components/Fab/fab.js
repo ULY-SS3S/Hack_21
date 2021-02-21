@@ -1,10 +1,13 @@
 import {Action, Fab} from "react-tiny-fab";
-import {EditFilled, ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
+import {EditFilled, UserOutlined} from "@ant-design/icons";
 import {Badge} from "antd";
 import React from "react";
 import ShoppingCartAction from "./shoppingCart";
+import {useHistory} from "react-router";
 
-export default function fab(actionButtonStyles){
+export const FabNavBar = (props) => {
+    let actionButtonStyles = props.actionButtonStyles;
+    const history = useHistory();
     return (
         <Fab
             mainButtonStyles={actionButtonStyles}
@@ -49,7 +52,9 @@ export default function fab(actionButtonStyles){
             </Action>
             <Action style={actionButtonStyles}
                     text="Add product"
-                    onClick={() => alert('No search...')}>
+                    onClick={() => {
+                        history.push("/create/product");
+                    }}>
                 <EditFilled />
             </Action>
         </Fab>

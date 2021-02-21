@@ -11,7 +11,7 @@ import {BackTop} from "antd";
 import 'react-tiny-fab/dist/styles.css';
 
 import {ArrowUpOutlined} from '@ant-design/icons';
-import fab from "../Fab/fab";
+import {FabNavBar} from "../Fab/fab";
 
 
 const Products = () => {
@@ -50,9 +50,10 @@ const Products = () => {
                 <div style={style}><ArrowUpOutlined /></div>
             </BackTop>
 
-            {fab({
-                backgroundColor: '#9b59b6'
-            })}
+            <FabNavBar actionButtonStyles={{
+
+                    backgroundColor: '#9b59b6'
+                }}/>
         </ProductContainer>
     );
 }
