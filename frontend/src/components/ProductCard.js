@@ -1,15 +1,22 @@
 import "../styles/product.css";
 import React from "react";
-import SampleImage from "../images/Sample.jpg";
-
 class ProductCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onItemAdded = this.onItemAdded.bind(this);
+    }
+
+    onItemAdded() {
+        this.props.update(this);
+    }
+
     render() {
         return (
             <div className="col-12 col-sm-12 col-md-6 col-lg-4 mt-3">
                 <div className="card shadow-lg border">
                     {" "}
                     <img
-                        src={SampleImage}
+                        src={this.props.img}
                         alt="not available"
                         className="card-img-top"
                         width="100%"
@@ -89,6 +96,7 @@ class ProductCard extends React.Component {
                             <button
                                 type="button"
                                 className="btn btn-danger btn-block"
+                                onClick={this.onItemAdded}
                             >
                                 <b>BUY</b>
                             </button>
